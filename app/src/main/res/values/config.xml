@@ -1,0 +1,6 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="api_key" tools:ignore="TypographyDashes">62817fb4-7339-429c-9a2d-113855a5917e</string>
+    <string name="base_api">https://api.unsplash.com/</string>
+    <string name="access_key">40a6f91c2db3ee1f8a4bb70abef3c5797f87dff07abc07867138f0dd9f55fb0d</string>
+    <string name="secret_key">0d969de8b2a0478bdcfa4511ead385fc7652fb16ce76f5306adbe25e13399aa0</string>
+</resources>

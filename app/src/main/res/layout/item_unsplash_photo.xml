@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
+
+    <se.mobileinteraction.photogallery.ui.photos.AspectRatioImageView
+        android:id="@+id/unsplash_image"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/photo"
+        android:scaleType="centerCrop"
+        android:foreground="?selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ToggleButton
+        android:id="@+id/photo_fav_switch"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:layout_constraintBottom_toBottomOf="@+id/unsplash_image"
+        app:layout_constraintRight_toRightOf="@+id/unsplash_image"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:textOn=""
+        android:textOff=""
+        android:background="@drawable/toggle_drawable"
+        android:checked="false"
+        android:shadowColor="#DD111010"
+        android:outlineSpotShadowColor="#C40707"
+        android:outlineAmbientShadowColor="#34C210"
+        />
+
+
+
+    <TextView
+        android:id="@+id/user_photograph"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:paddingLeft="4dp"
+        android:paddingTop="2dp"
+        android:paddingRight="4dp"
+        android:paddingBottom="2dp"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/unsplash_image"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:text=" Photographer name " />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    app:startDestination="@id/photosListFragment">
+
+    <fragment
+        android:id="@+id/photosListFragment"
+        android:name="se.mobileinteraction.photogallery.ui.photos.PhotosListFragment"
+        android:label="@string/list_title"
+        tools:layout="@layout/fragment_photo_list">
+
+        <action
+            android:id="@+id/action_photosListFragment_to_detailsPageFragment"
+            app:destination="@id/detailsPageFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fade_out" />
+        <action
+            android:id="@+id/action_photosListFragment_to_favouriteFragment"
+            app:destination="@id/favouriteFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favouriteFragment"
+        android:name="se.mobileinteraction.photogallery.ui.favourites.FavouritesListFragment"
+        android:label="FavouritesListFragment" >
+        <action
+            android:id="@+id/action_favouriteFragment_to_photosListFragment"
+            app:destination="@id/photosListFragment"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_enter"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_enter"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="se.mobileinteraction.photogallery.ui.AboutFragment"
+        android:label="@string/about_title"
+        tools:layout="@layout/fragment_about">
+        <action
+            android:id="@+id/action_aboutFragment_to_licencesMenu"
+            app:destination="@id/licencesMenu"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_fade_enter"
+            app:popExitAnim="@anim/fragment_fade_exit"
+            app:popUpTo="@+id/photosListFragment" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="se.mobileinteraction.photogallery.ui.search.SearchFragment"
+        android:label="search_fragment"
+        tools:layout="@layout/search_fragment">
+        <action
+            android:id="@+id/action_searchFragment_to_searchResultFragment"
+            app:destination="@id/searchResultFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_searchFragment"
+        app:destination="@+id/searchFragment"
+        app:enterAnim="@anim/fragment_open_enter"
+        app:exitAnim="@anim/fragment_fade_enter"
+        app:popEnterAnim="@anim/fragment_fast_out_extra_slow_in"
+        app:popExitAnim="@anim/fragment_fade_exit" />
+
+    <fragment
+        android:id="@+id/searchResultFragment"
+        android:name="se.mobileinteraction.photogallery.ui.search.SearchResultFragment"
+        android:label="search_result_fragment"
+        tools:layout="@layout/search_result_fragment">
+        <argument
+            android:name="searchQuery"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_searchResultFragment_to_detailsPageFragment"
+            app:destination="@id/detailsPageFragment" />
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+
+    <activity
+        android:id="@+id/licencesMenu"
+        android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity"
+        android:label="@string/open_source_licenses_title" />
+    <fragment
+        android:id="@+id/detailsPageFragment"
+        android:name="se.mobileinteraction.photogallery.ui.photos.DetailsPageFragment"
+        android:label="details_page_fragment"
+        tools:layout="@layout/details_page_fragment"
+        >
+        <argument
+            android:name="photoDetails"
+            app:argType="se.mobileinteraction.photogallery.entities.UnsplashPhoto" />
+        <action
+            android:id="@+id/action_detailsPageFragment_self"
+            app:destination="@id/detailsPageFragment" />
+        <action
+            android:id="@+id/action_detailsPageFragment_to_photosListFragment"
+            app:destination="@id/photosListFragment"
+
+            />
+
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="se.mobileinteraction.photogallery.ui.map.MapsFragment"
+        android:label="maps_fragment"
+        >
+        <action
+            android:id="@+id/action_mapsFragment_to_searchResultFragment"
+            app:destination="@id/searchResultFragment" />
+    </fragment>
+
+
+
+</navigation>

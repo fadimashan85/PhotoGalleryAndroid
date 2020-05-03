@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context="se.mobileinteraction.photogallery.ui.photos.DetailsPageFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+
+        <se.mobileinteraction.photogallery.ui.photos.AspectRatioImageView
+            android:id="@+id/onePhoto"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/photo"
+            android:foreground="?selectableItemBackground"
+            android:scaleType="centerCrop"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_height="200dp"
+            android:transitionName="clicked_photo"
+            android:paddingTop="28dp"
+            />
+
+
+        <ToggleButton
+            android:id="@+id/favo_switch"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            app:layout_constraintBottom_toBottomOf="@+id/onePhoto"
+            app:layout_constraintRight_toRightOf="@+id/onePhoto"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:textOn=""
+            android:textOff=""
+            android:background="@drawable/toggle_drawable"
+            android:checked="false"
+            />
+
+        <View
+            android:id="@+id/profile_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/details_page_background"
+            app:layout_constraintBottom_toBottomOf="@id/user_bio"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/onePhoto" />
+
+        <ImageView
+            android:id="@+id/profile_photo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/color_on_surface"
+            android:nestedScrollingEnabled="true"
+            android:src="@android:color/holo_blue_dark"
+            app:layout_constraintLeft_toLeftOf="@+id/profile_view"
+            app:layout_constraintTop_toTopOf="@id/profile_view"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:maxLines="1"
+            android:paddingStart="8dp"
+            android:textColor="#020202"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/profile_photo"
+            app:layout_constraintLeft_toRightOf="@id/profile_photo"
+            app:layout_constraintTop_toTopOf="@+id/profile_view"
+            tools:text="username" />
+
+        <TextView
+            android:id="@+id/user_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:ellipsize="end"
+            android:padding="8dp"
+            android:text="details"
+            android:textColor="#020202"
+            app:layout_constraintLeft_toLeftOf="@+id/profile_view"
+            app:layout_constraintTop_toBottomOf="@+id/profile_photo" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/details_page_rv_background"
+            android:drawSelectorOnTop="true"
+            android:nestedScrollingEnabled="false"
+            android:paddingBottom="?actionBarSize"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profile_view" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
